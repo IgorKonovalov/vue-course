@@ -2,8 +2,18 @@
   <nav>
     <div class="nav-header">
       <div class="text-input">
-        <input type="text" ref="userName" @keyup.enter="addUser" />
-        <button class="btn-add" @click.prevent="addUser">Add</button>
+        <input
+          type="text"
+          class="aqa-input-add-user"
+          ref="userName"
+          @keyup.enter="addUser" 
+        />
+        <button
+          class="btn-add aqa-button-add"
+          @click.prevent="addUser"
+        >
+          Add
+        </button>
       </div>
       <div class="account">
         <span class="name">{{ accountName }}</span>
@@ -20,20 +30,11 @@ export default {
   name: "NavBar",
 
   computed: {
-    /*
-			accountName() {
-				return this.$store.state.account.accountName;
-			},
-
-			accountAvatar() {
-				return this.$store.state.account.accountAvatar;
-			},
-			*/
     ...mapState("account", ["accountName", "accountAvatar"])
   },
 
   methods: {
-    addUser(e) {
+    addUser() {
       const el = this.$refs.userName;
 
       if (el.value.trim() !== "") {
