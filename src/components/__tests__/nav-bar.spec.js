@@ -1,6 +1,6 @@
 import Vuex from 'vuex';
 import { shallowMount, createLocalVue } from '@vue/test-utils';
-import NavBar from './nav-bar.vue';
+import NavBar from '../nav-bar.vue';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
