@@ -8,10 +8,10 @@ localVue.use(Vuex);
 describe('NavBar', () => {
   let wrapper;
   let store;
-  let loadUsersMock;
+  let addUserMock;
 
   beforeEach(() => {
-    loadUsersMock = jest.fn();
+    addUserMock = jest.fn();
 
     store = new Vuex.Store({
       modules: {
@@ -26,7 +26,7 @@ describe('NavBar', () => {
           namespaced: true,
           state: {},
           mutations: {
-            LOAD_USERS: loadUsersMock
+            ADD_USER: addUserMock
           }
         }
       }
@@ -41,5 +41,30 @@ describe('NavBar', () => {
 
   it('renders correctly', () => {
     expect(wrapper.vm.$el).toMatchSnapshot()
+  });
+
+  it('user can be added by filling name and pressing ether enter or button', () => {
+    const button = wrapper.find('.aqa-button-add');
+    const input = wrapper.find('.aqa-input-add-user');
+
+    input.element.value = 'New user name';
+    button.trigger('click');
+
+    expect(addUserMock).toBeCalledWith({}, 'New user name');
+
+    input.element.value = 'Another user name';
+    input.trigger('keyup.enter');
+
+    expect(addUserMock).toBeCalledWith({}, 'Another user name');
+  });
+
+  it('user is not added if input is empty', () => {
+    const button = wrapper.find('.aqa-button-add');
+    const input = wrapper.find('.aqa-input-add-user');
+
+    input.element.value = '';
+    button.trigger('click');
+
+    expect(addUserMock).not.toBeCalled();
   });
 });
