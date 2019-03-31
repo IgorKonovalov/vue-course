@@ -1,13 +1,13 @@
 <template>
   <div>
     <section>
-      <a class="load-users aqa-load-users" href="#" @click.prevent="loadUsers"
-        >Load users</a
-      >
+      <a class="load-users aqa-load-users" href="#" @click.prevent="loadUsers">
+        Load users
+      </a>
       <h2 class="aqa-user-count">Count: {{ userCount }}</h2>
     </section>
 
-    <ul class="user-list">
+    <ul class="user-list aqa-user-list">
       <li
         class="user-list--item aqa-user-list-item"
         v-for="user in users"
@@ -17,7 +17,10 @@
         <router-link :to="`./user-details/${user.id}`" class="username">
           {{ user.name }}
         </router-link>
-        <a href="#" class="btn-remove" @click.prevent="removeUser(user.id)"
+        <a
+          href="#"
+          class="btn-remove aqa-user-remove"
+          @click.prevent="removeUser(user.id)"
           >+</a
         >
       </li>
