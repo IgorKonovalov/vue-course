@@ -7,11 +7,15 @@
 
     <ul class="user-list">
       <li class="user-list--item" v-for="user in users" :key="user.id">
-        <div class="avatar"><img :src="userAvatar" width="48" /></div>
-        <span class="username">{{ user.name }}</span>
-        <a href="#" class="btn-remove" @click.prevent="removeUser(user.id)"
-          >+</a
-        >
+        <div class="avatar">
+          <img :src="userAvatar" width="48" />
+        </div>
+        <router-link :to="`./user-details/${user.id}`" class="username">
+          {{ user.name }}
+        </router-link>
+        <a href="#" class="btn-remove" @click.prevent="removeUser(user.id)">
+          +
+        </a>
       </li>
     </ul>
   </div>

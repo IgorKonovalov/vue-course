@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <nav-bar />
-    <main><user-list /></main>
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
 
 <script>
 import navBar from '@/components/nav-bar.vue';
-import userList from '@/components/user-list.vue';
 
 export default {
   name: 'App',
 
   components: {
     navBar,
-    userList,
   },
 };
 </script>
