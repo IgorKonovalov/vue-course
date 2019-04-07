@@ -1,5 +1,5 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 import account from './modules/account.js';
 import users from './modules/users.js';
@@ -7,8 +7,8 @@ import users from './modules/users.js';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-	modules: {
-		account,
-		users
-	}
+  modules: {
+    account,
+    users,
+  },
 });

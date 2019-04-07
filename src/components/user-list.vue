@@ -9,7 +9,7 @@
       <li class="user-list--item" v-for="user in users" :key="user.id">
         <div class="avatar"><img :src="userAvatar" width="48" /></div>
         <span class="username">{{ user.name }}</span>
-        <a href="#" class="btn-remove" @click.prevent="removeUser(user.id);"
+        <a href="#" class="btn-remove" @click.prevent="removeUser(user.id)"
           >+</a
         >
       </li>
@@ -18,35 +18,35 @@
 </template>
 
 <script>
-import userAvatar from "../assets/user-avatar.png";
-import { mapState, mapGetters } from "vuex";
+import userAvatar from '../assets/user-avatar.png';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
-  name: "UserList",
+  name: 'UserList',
 
   data: () => ({ userAvatar }),
 
   computed: {
-    ...mapState("users", ["users"]),
-    ...mapGetters("users", ["userCount"])
+    ...mapState('users', ['users']),
+    ...mapGetters('users', ['userCount']),
   },
 
   methods: {
     loadUsers() {
       this.$store
-        .dispatch("users/LOAD_USERS")
-        .catch(err => console.log("--- ERROR --->", err.message));
+        .dispatch('users/LOAD_USERS')
+        .catch(err => console.log('--- ERROR --->', err.message));
     },
 
     removeUser(id) {
-      this.$store.commit("users/REMOVE_USER", id);
-    }
-  }
+      this.$store.commit('users/REMOVE_USER', id);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/variables.scss";
+@import '../styles/variables.scss';
 
 section {
   display: flex;

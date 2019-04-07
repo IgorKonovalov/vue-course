@@ -2,13 +2,13 @@ export default {
   namespaced: true,
 
   state: {
-    users: []
+    users: [],
   },
 
   getters: {
     userCount(state) {
       return state.users.length;
-    }
+    },
   },
 
   mutations: {
@@ -24,14 +24,14 @@ export default {
     REMOVE_USER(state, id) {
       console.log(this.state);
       state.users = state.users.filter(item => item.id !== id);
-    }
+    },
   },
 
   actions: {
     LOAD_USERS({ commit }) {
-      return fetch("https://jsonplaceholder.typicode.com/users")
+      return fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
-        .then(users => commit("POPULATE_USERS", users));
-    }
-  }
+        .then(users => commit('POPULATE_USERS', users));
+    },
+  },
 };

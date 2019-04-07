@@ -6,21 +6,21 @@
 </template>
 
 <script>
-import navBar from "@/components/nav-bar.vue";
-import userList from "@/components/user-list.vue";
+import navBar from '@/components/nav-bar.vue';
+import userList from '@/components/user-list.vue';
 
 export default {
-  name: "App",
+  name: 'App',
 
   components: {
     navBar,
-    userList
-  }
+    userList,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "./styles/variables.scss";
+@import './styles/variables.scss';
 #app {
   height: 100vh;
 }

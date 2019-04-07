@@ -1,10 +1,10 @@
-import avatar from "@/assets/avatar.jpg";
+import avatar from '../../../src/assets/user-avatar.png';
 
 export default {
   namespaced: true,
 
   state: {
-    accountName: "Alexander",
-    accountAvatar: avatar
-  }
+    accountName: 'Anonymous',
+    accountAvatar: avatar,
+  },
 };
