@@ -22,7 +22,6 @@ export default {
     },
 
     REMOVE_USER(state, id) {
-      console.log(this.state);
       state.users = state.users.filter(item => item.id !== id);
     },
   },
