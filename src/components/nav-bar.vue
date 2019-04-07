@@ -14,41 +14,32 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex';
 
 export default {
-  name: "NavBar",
+  name: 'NavBar',
 
   computed: {
-    /*
-			accountName() {
-				return this.$store.state.account.accountName;
-			},
-
-			accountAvatar() {
-				return this.$store.state.account.accountAvatar;
-			},
-			*/
-    ...mapState("account", ["accountName", "accountAvatar"])
+    ...mapState('account', ['accountName', 'accountAvatar']),
   },
 
   methods: {
-    addUser(e) {
+    addUser() {
       const el = this.$refs.userName;
 
-      if (el.value.trim() !== "") {
-        this.$store.commit("users/ADD_USER", el.value);
+      if (el.value.trim() !== '') {
+        this.$store.commit('users/ADD_USER', el.value);
 
-        el.value = "";
+        el.value = '';
         el.focus();
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/variables.scss";
+@import '../styles/variables.scss';
 
 nav {
   background: $vue-green-minus-5;
@@ -77,7 +68,7 @@ nav {
       margin: 0 12px;
       padding: 4px 8px;
 
-      input[type="text"] {
+      input[type='text'] {
         font-family: $font-primary, sans-serif;
         font-size: 22px;
         color: #fff;
