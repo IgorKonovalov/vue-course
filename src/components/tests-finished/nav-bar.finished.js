@@ -8,10 +8,10 @@ localVue.use(Vuex);
 describe('NavBar', () => {
   let wrapper;
   let store;
-  let addUserMock;
+  let addUserToStoreMock;
 
   beforeEach(() => {
-    addUserMock = jest.fn();
+    addUserToStoreMock = jest.fn();
 
     store = new Vuex.Store({
       modules: {
@@ -25,8 +25,8 @@ describe('NavBar', () => {
         users: {
           namespaced: true,
           state: {},
-          mutations: {
-            ADD_USER: addUserMock,
+          actions: {
+            addUserToStore: addUserToStoreMock,
           },
         },
       },
@@ -50,12 +50,13 @@ describe('NavBar', () => {
     input.element.value = 'New user name';
     button.trigger('click');
 
-    expect(addUserMock).toBeCalledWith({}, 'New user name');
+    expect(addUserToStoreMock).toBeCalledWith({}, 'New user name');
+    addUserToStoreMock.mockClear();
 
     input.element.value = 'Another user name';
     input.trigger('keyup.enter');
 
-    expect(addUserMock).toBeCalledWith({}, 'Another user name');
+    expect(addUserToStoreMock).toBeCalledWith({}, 'Another user name');
   });
 
   it('user is not added if input is empty', () => {
@@ -65,6 +66,6 @@ describe('NavBar', () => {
     input.element.value = '';
     button.trigger('click');
 
-    expect(addUserMock).not.toBeCalled();
+    expect(addUserToStoreMock).not.toBeCalled();
   });
 });

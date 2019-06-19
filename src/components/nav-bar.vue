@@ -35,7 +35,7 @@ export default {
       const el = this.$refs.userName;
 
       if (el.value.trim() !== '') {
-        this.$store.commit('users/ADD_USER', el.value);
+        this.$store.dispatch('users/addUserToStore', el.value);
 
         el.value = '';
         el.focus();

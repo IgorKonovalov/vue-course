@@ -27,7 +27,11 @@ export default {
   },
 
   actions: {
-    LOAD_USERS({ commit }) {
+    addUserToStore({ commit }, name) {
+      commit('ADD_USER', name);
+    },
+
+    loadUsers({ commit }) {
       return fetch('https://jsonplaceholder.typicode.com/users')
         .then(res => res.json())
         .then(users => commit('POPULATE_USERS', users));

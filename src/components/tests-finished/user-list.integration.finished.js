@@ -11,7 +11,7 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueRouter);
 
-describe('NavBar', () => {
+describe('UserList', () => {
   let wrapper;
   let store;
 

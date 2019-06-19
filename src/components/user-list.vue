@@ -45,7 +45,7 @@ export default {
   methods: {
     loadUsers() {
       this.$store
-        .dispatch('users/LOAD_USERS')
+        .dispatch('users/loadUsers')
         .catch(err => console.log('--- ERROR --->', err.message));
     },
 
